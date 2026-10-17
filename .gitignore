@@ -201,7 +201,21 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+# Local Verifiers evaluation artifacts
+outputs/
+
 # Marimo
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Local clones and runtimes used by the Click catalog
+code_testing_eval/.cache/
+
+# Catalog data, grading bundles, and all runtime results stay local.
+/code_testing_eval/private_grading/
+/code_testing_eval/STATUS.json
+
+# Account credentials stay local; retain the empty example.
+.env.*
+!.env.example
