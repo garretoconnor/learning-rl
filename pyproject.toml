@@ -1,0 +1,24 @@
+[project]
+name = "learning-rl"
+version = "0.1.0"
+description = "Learning reinforcement learning and coding-task environment design"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "click-pilot",
+    "coding-tasks",
+    "verifiers==0.3.1",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = [
+    "environments/click_pilot",
+    "environments/coding_tasks",
+]
+
+[tool.uv.sources]
+click-pilot = { workspace = true }
+coding-tasks = { workspace = true }

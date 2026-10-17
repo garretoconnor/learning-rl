@@ -1,0 +1,32 @@
+# Cloud execution with the verified private runtime image and Linux bundle.
+# Set a model and endpoint that support Responses before a live model run.
+model = "local-model"
+num_tasks = 1
+num_rollouts = 1
+max_concurrent = 1
+push = false
+
+[env.taskset]
+id = "click-pilot"
+
+[env.taskset.task.host]
+backend = "prime"
+bundle = "code_testing_eval/private_grading/pilots/click-pilot-linux-01"
+image = "prime/cmgmzj3qf001e18jip6eovbnl/click-pilot-runtime:95047fb269b0f433"
+
+[env.agent.harness]
+id = "click-pilot"
+
+[env.agent.runtime]
+type = "subprocess"
+
+[env.agent]
+max_turns = 40
+
+[client]
+base_url = "http://127.0.0.1:8000/v1"
+api_key_var = "LOCAL_MODEL_API_KEY"
+
+[sampling]
+temperature = 0.0
+max_tokens = 4096

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "bug_id": "click-<full-commit-hash>",
+  "status": "candidate",
+  "behavioral_claim": null,
+  "contract_evidence": [],
+  "before_revision": null,
+  "fixed_revision": null,
+  "reproducer": {"path": null, "test_command": null, "failure_marker": null, "status": "not_extracted", "parallel_safe": false},
+  "runtime": {"python": null, "dependency_lock": null, "status": "not_verified"},
+  "verification": {"status": "not_run", "before": null, "fixed": null},
+  "snapshot_results": [],
+  "duplicate_of": null
+}

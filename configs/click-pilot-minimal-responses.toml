@@ -1,0 +1,44 @@
+# Shared Prime Linux harness VMs; same model, task, and limits as the first comparison.
+# Load OPENROUTER_API_KEY from the ignored root .env file before running.
+model = "deepseek/deepseek-v4.1-flash-1017"
+num_tasks = 1
+num_rollouts = 1
+max_concurrent = 1
+push = false
+
+[run]
+name = "click-prime-harness-minimal-01"
+dir = "click-prime-harness-minimal-01"
+
+[env.taskset]
+id = "click-pilot"
+
+[env.taskset.task]
+agent_timeout_seconds = 1800
+
+[env.taskset.task.host]
+backend = "prime"
+bundle = "code_testing_eval/private_grading/pilots/click-pilot-linux-01"
+image = "prime/cmgmzj3qf001e18jip6eovbnl/click-pilot-runtime:95047fb269b0f433"
+
+[env.agent.harness]
+id = "click-pilot"
+variant = "minimal"
+prime_required = true
+protocol = "responses"
+compact_tokens = 32000
+
+[env.agent.runtime]
+type = "subprocess"
+
+[env.agent]
+max_turns = 40
+
+[client]
+base_url = "https://openrouter.ai/api/v1"
+api_key_var = "OPENROUTER_API_KEY"
+
+[sampling]
+temperature = 0.0
+reasoning_effort = "low"
+max_tokens = 4096
